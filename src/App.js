@@ -1,12 +1,17 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect, useState } from 'react';
+import { getStoryIds } from './services/hnapi';
 
-function App() {
+export const App = () => {
+  const [storyIds, setStoryIds] = useState([]);
+
+  useEffect (() => {
+    getStoryIds().then(data => setStoryIds(data));
+  }, []);
+
+
   return (
-    <div className="App">
-     News Reader
-    </div>
-  );
+    <h1>{JSON.stringify(storyIds)}</h1>
+  )
 }
 
-export default App;
+
