@@ -10,6 +10,6 @@ export const StoriesContainer = () => {
   }, []);
 
   return storyIds.map(storyId => (
-    <Story storyId={storyId}/>
+    <Story key={storyId} storyId={storyId}/>
   ))
 };
